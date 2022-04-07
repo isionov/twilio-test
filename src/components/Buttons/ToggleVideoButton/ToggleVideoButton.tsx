@@ -13,7 +13,7 @@ export default function ToggleVideoButton(props: { disabled?: boolean; className
   const { hasVideoInputDevices } = useDevices();
 
   const toggleVideo = useCallback(() => {
-    if (Date.now() - lastClickTimeRef.current > 500) {
+    if (Date.now() - lastClickTimeRef.current > 50) {
       lastClickTimeRef.current = Date.now();
       toggleVideoEnabled();
     }
