@@ -13,15 +13,14 @@ export default function useLocalVideoToggle() {
   const toggleVideoEnabled = useCallback(() => {
     if (!isPublishing) {
       if (videoTrack) {
-        // stop track
-        videoTrack.stop();
-
-        // postpone track unpublishing
         setTimeout(() => {
+          console.log('@@@1');
+
           const localTrackPublication = localParticipant?.unpublishTrack(videoTrack);
           // TODO: remove when SDK implements this event. See: https://issues.corp.twilio.com/browse/JSDK-2592
           localParticipant?.emit('trackUnpublished', localTrackPublication);
-        }, 1000);
+        });
+        console.log('@@@2');
 
         removeLocalVideoTrack();
       } else {

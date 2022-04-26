@@ -52,7 +52,7 @@ export default function useLocalTracks() {
   const removeLocalVideoTrack = useCallback(() => {
     if (videoTrack) {
       // to reproduce a problem - stop track before unpublishing
-      // videoTrack.stop();
+      videoTrack.stop();
       setVideoTrack(undefined);
     }
   }, [videoTrack]);
